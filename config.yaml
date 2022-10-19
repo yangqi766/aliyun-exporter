@@ -1,0 +1,113 @@
+credentials:
+  # You can obtain monitoring data of multiple tenants by configuring multiple Tenant information.
+  tenantId1:
+    accessKey:
+    accessKeySecret:
+    region: cn-shanghai
+# ......
+
+metrics:
+  acs_ecs_dashboard:
+    - name: CPUUtilization
+      desc: CPU使用率
+      dimensions:
+        - userId
+        - instanceId
+      measure: Average
+      period: 1200
+      unit: "%"
+  acs_rds_dashboard:
+    - name: CpuUsage
+      desc: CPU使用率
+      dimensions:
+        - instanceId
+        - DBInstanceDescription
+      measure: Average
+      period: 1200
+      unit: "%"
+    - name: ConnectionUsage
+      desc: 连接数使用率
+      dimensions:
+        - instanceId
+        - DBInstanceDescription
+      measure: Average
+      period: 1200
+      unit: "%"
+  acs_slb_dashboard:
+    - name: TrafficRXNew
+      desc: 流入带宽
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "bit/s"
+    - name: TrafficTXNew
+      desc: 流出带宽
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "bit/s"
+    - name: ActiveConnection
+      desc: TCP每秒活跃连接数
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "Count"
+    - name: InstanceStatusCode2xx
+      desc: 七层实例每秒状态码2XX数量
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+    - name: InstanceStatusCode4xx
+      desc: 七层实例每秒状态码4XX数量
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "Count/Second"
+    - name: InstanceStatusCode5xx
+      desc: 七层实例每秒状态码5XX数量
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "Count/Second"
+    - name: MaxConnection
+      desc: 端口并发连接数
+      dimensions:
+        - instanceId
+        - loadbalancerName
+        - protocol
+        - port
+        - vip
+      measure: Average
+      period: 1200
+      unit: "Count/Second"
+
